@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  mydb:
+    image: mongo:latest
+    container_name: mymongodb
+    ports:
+      - 27017:27017
+  driver:
+    image: mongo_driver
+    container_name: driver
+    ports:
+      - 8080:8080
+    links:
+      - mydb:mongo
