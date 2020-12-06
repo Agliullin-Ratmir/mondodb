@@ -9,12 +9,23 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
+	maven {
+		url "https://maven.springframework.org/release"
+	}
+	maven {
+		url "https://repo.spring.io/milestone"
+	}
 	mavenCentral()
 }
 
 dependencies {
-	compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.12.7'
-	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.mongodb:mongo-java-driver:3.12.7'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb:2.0.5.RELEASE'
+	implementation 'org.springframework.data:spring-data-mongodb:2.0.5.RELEASE'
+	compile group: 'org.springframework.data', name: 'spring-data-commons', version: '2.0.5.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.3.RELEASE'
+	compile group: 'org.springframework.data', name: 'spring-data-releasetrain', version: 'Lovelace-SR21', ext: 'pom'
+	implementation 'com.google.guava:guava:23.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
 }
